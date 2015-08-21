@@ -10,3 +10,7 @@ ENV JAVA_VERSION 6b36
 ENV JAVA_DEBIAN_VERSION 6b36-1.13.8-1~deb7u1
 # 安装uzip和openjdk-6-jdk
 RUN apt-get update && apt-get install -y openjdk-6-jdk="$JAVA_DEBIAN_VERSION" && rm -rf /var/lib/apt/lists/*
+# 暴露80端口
+EXPOSE 80
+# 运行supervisord
+CMD ["/usr/bin/supervisord"]
